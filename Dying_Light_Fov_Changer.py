@@ -214,12 +214,12 @@ class FovEditor(QWidget):
         found = False
         for i, line in enumerate(lines):
             if line.strip().startswith("ExtraGameFov"):
-                lines[i] = f"ExtraGameFov {fov_value}\n"
+                lines[i] = f"ExtraGameFov({fov_value})\n"
                 found = True
                 break
 
         if not found:
-            lines.append(f"\nExtraGameFov {fov_value}\n")
+            lines.append(f"\nExtraGameFov({fov_value})\n")
 
         with open(self.file_path, "w", encoding="utf-8") as f:
             f.writelines(lines)
